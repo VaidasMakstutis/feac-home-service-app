@@ -1,0 +1,10 @@
+.businesses {
+  padding-top: 3rem;
+
+  .businessesContainer {
+    padding-top: 2rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

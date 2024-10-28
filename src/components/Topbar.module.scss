@@ -1,0 +1,31 @@
+.topbar {
+  font-size: 1.3rem;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid lightblue;
+
+  .leftSide {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .link {
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
