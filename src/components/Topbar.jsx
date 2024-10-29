@@ -2,10 +2,9 @@ import styles from "./Topbar.module.scss";
 import Logo from "../assets/logo.svg";
 import { LoginButton } from "./LoginButton";
 import { ROUTES } from "../router/consts";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Topbar() {
-  const navigate = useNavigate();
   const links = [
     {
       href: ROUTES.HOME,
@@ -36,7 +35,7 @@ export function Topbar() {
         </nav>
       </div>
       <div className={styles.rightSide}>
-        <LoginButton onClick={() => navigate(ROUTES.LOGIN)} />
+        <LoginButton />
       </div>
     </header>
   );

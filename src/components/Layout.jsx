@@ -1,18 +1,14 @@
 import styles from "./Layout.module.scss";
-import { Hero } from "./Hero";
-import { InputSearch } from "./InputSearch";
-import { CategoriesList } from "./CategoriesList";
-import { BusinessesList } from "./BusinessesList";
 import { Topbar } from "./Topbar";
+import { Outlet } from "react-router-dom";
 
 export function Layout() {
   return (
-    <section className={styles.container}>
+    <>
       <Topbar />
-      <Hero />
-      <InputSearch />
-      <CategoriesList />
-      <BusinessesList />
-    </section>
+      <section className={styles.container}>
+        <Outlet />
+      </section>
+    </>
   );
 }
