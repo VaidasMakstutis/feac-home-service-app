@@ -2,6 +2,7 @@
   font-size: 1.3rem;
   padding: 1.5rem 3rem;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid lightblue;
@@ -27,5 +28,23 @@
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
+  }
+}
+
+// Media queries
+
+@media screen and (max-width: $sm) {
+  .topbar {
+    flex-direction: column;
+    justify-content: center;
+
+    .leftSide,
+    .navigation {
+      flex-direction: column;
+    }
+
+    .rightSide {
+      margin-top: 1rem;
+    }
   }
 }
