@@ -1,6 +1,6 @@
 import styles from "./CategoriesList.module.scss";
 import { SingleCategory } from "./SingleCategory";
-import { categories } from "../consts/data";
+import { categories } from "../data/data";
 
 export function CategoriesList() {
   return (

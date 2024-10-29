@@ -1,19 +1,22 @@
 import styles from "./Topbar.module.scss";
 import Logo from "../assets/logo.svg";
 import { LoginButton } from "./LoginButton";
+import { ROUTES } from "../router/consts";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Topbar() {
+  const navigate = useNavigate();
   const links = [
     {
-      href: "/",
+      href: ROUTES.HOME,
       label: "Home"
     },
     {
-      href: "/services",
+      href: ROUTES.SERVICES,
       label: "Services"
     },
     {
-      href: "/about-me",
+      href: ROUTES.ABOUT_US,
       label: "About Us"
     }
   ];
@@ -21,17 +24,19 @@ export function Topbar() {
   return (
     <header className={styles.topbar}>
       <div className={styles.leftSide}>
-        <img src={Logo} alt="logo" />
+        <Link to={ROUTES.HOME}>
+          <img src={Logo} alt="logo" />
+        </Link>
         <nav className={styles.navigation}>
           {links.map(link => (
-            <a href={link.href} className={styles.link} key={link.label}>
+            <Link key={link.label} to={link.href} className={styles.link}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
       <div className={styles.rightSide}>
-        <LoginButton />
+        <LoginButton onClick={() => navigate(ROUTES.LOGIN)} />
       </div>
     </header>
   );
