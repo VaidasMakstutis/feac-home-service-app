@@ -1,6 +1,6 @@
 import styles from "./BusinessesList.module.scss";
-import { SingleBusiness } from "./SingleBusiness";
-import { businesses } from "../data/data";
+import { SingleBusiness } from "../Business/SingleBusiness";
+import { businesses } from "../../data/data";
 
 export function BusinessesList() {
   return (

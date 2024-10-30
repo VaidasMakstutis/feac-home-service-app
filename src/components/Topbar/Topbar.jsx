@@ -1,7 +1,7 @@
 import styles from "./Topbar.module.scss";
-import Logo from "../assets/logo.svg";
-import { LoginButton } from "./LoginButton";
-import { ROUTES } from "../router/consts";
+import Logo from "../../assets/logo.svg";
+import { LoginButton } from "../LoginButton/LoginButton";
+import { ROUTES } from "../../router/consts";
 import { Link } from "react-router-dom";
 
 export function Topbar() {

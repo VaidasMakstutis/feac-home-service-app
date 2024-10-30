@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ROUTES } from "../router/consts";
 import styles from "./Login.module.scss";
-import stylesButton from "../components/LoginButton.module.scss";
+import stylesButton from "../components/LoginButton/LoginButton.module.scss";
 
 export function Register() {
   return (
