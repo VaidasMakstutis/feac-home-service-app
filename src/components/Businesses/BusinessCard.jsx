@@ -1,7 +1,7 @@
-import styles from "./SingleBusiness.module.scss";
+import styles from "./BusinessCard.module.scss";
 import PropTypes from "prop-types";
 
-export function SingleBusiness({ businesses }) {
+export function BusinessCard({ businesses }) {
   return (
     <>
       {businesses.map(business => (
@@ -20,6 +20,6 @@ export function SingleBusiness({ businesses }) {
   );
 }
 
-SingleBusiness.propTypes = {
+BusinessCard.propTypes = {
   businesses: PropTypes.array.isRequired
 };
