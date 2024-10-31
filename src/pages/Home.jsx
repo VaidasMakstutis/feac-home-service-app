@@ -1,7 +1,7 @@
 import { Hero } from "../components/Hero/Hero";
 import { InputSearch } from "../components/InputSearch/InputSearch";
 import { CategoriesList } from "../components/Categories/CategoriesList";
-import { BusinessesList } from "../components/Business/BusinessesList";
+import { BusinessList } from "../components/Business/BusinessList";
 
 export function Home() {
   return (
@@ -9,7 +9,7 @@ export function Home() {
       <Hero />
       <InputSearch />
       <CategoriesList />
-      <BusinessesList />
+      <BusinessList />
     </>
   );
 }

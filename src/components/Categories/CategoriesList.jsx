@@ -4,8 +4,10 @@ import { categories } from "../../data/data";
 
 export function CategoriesList() {
   return (
-    <section className={styles.categoriesContainer}>
-      <SingleCategory categories={categories} />
-    </section>
+    <div className={styles.categoriesContainer}>
+      {categories.map(category => (
+        <SingleCategory key={category.name} category={category} className={styles.card} />
+      ))}
+    </div>
   );
 }

@@ -7,6 +7,7 @@ import { Services } from "./pages/Services";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { SearchCategory } from "./pages/SearchCategory";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.REGISTER,
         element: <Register />
+      },
+      {
+        path: ROUTES.SEARCH_CATEGORY,
+        element: <SearchCategory />
       }
     ]
   }

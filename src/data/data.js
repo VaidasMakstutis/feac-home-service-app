@@ -1,10 +1,10 @@
 export const categories = [
-  { id: 1, title: "Cleaning", url: "https://img.icons8.com/?size=100&id=8088&format=png&color=000000" },
-  { id: 2, title: "Repair", url: "https://img.icons8.com/?size=100&id=59827&format=png&color=000000" },
-  { id: 3, title: "Painting", url: "https://img.icons8.com/?size=100&id=8141&format=png&color=000000" },
-  { id: 4, title: "Shifting", url: "https://img.icons8.com/?size=100&id=9341&format=png&color=000000" },
-  { id: 5, title: "Plumbing", url: "https://img.icons8.com/?size=100&id=24925&format=png&color=000000" },
-  { id: 6, title: "Electric", url: "https://img.icons8.com/?size=100&id=9094&format=png&color=000000" }
+  { id: 1, name: "Cleaning", url: "https://img.icons8.com/?size=100&id=8088&format=png&color=000000" },
+  { id: 2, name: "Repair", url: "https://img.icons8.com/?size=100&id=59827&format=png&color=000000" },
+  { id: 3, name: "Painting", url: "https://img.icons8.com/?size=100&id=8141&format=png&color=000000" },
+  { id: 4, name: "Shifting", url: "https://img.icons8.com/?size=100&id=9341&format=png&color=000000" },
+  { id: 5, name: "Plumbing", url: "https://img.icons8.com/?size=100&id=24925&format=png&color=000000" },
+  { id: 6, name: "Electric", url: "https://img.icons8.com/?size=100&id=9094&format=png&color=000000" }
 ];
 
 export const businesses = [

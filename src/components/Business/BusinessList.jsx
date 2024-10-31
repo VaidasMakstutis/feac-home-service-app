@@ -1,8 +1,8 @@
-import styles from "./BusinessesList.module.scss";
-import { SingleBusiness } from "../Business/SingleBusiness";
+import styles from "./BusinessList.module.scss";
+import { SingleBusiness } from "./SingleBusiness";
 import { businesses } from "../../data/data";
 
-export function BusinessesList() {
+export function BusinessList() {
   return (
     <section className={styles.businesses}>
       <h2>Popular Businesses</h2>
