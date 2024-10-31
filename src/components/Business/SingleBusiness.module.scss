@@ -15,7 +15,7 @@
   .cardInfo {
     margin: 1rem;
 
-    .service {
+    .category {
       display: inline-block;
       color: $primary-color;
       font-weight: 500;
@@ -26,7 +26,7 @@
       text-transform: capitalize;
     }
 
-    .title {
+    .name {
       margin-top: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem 0;
