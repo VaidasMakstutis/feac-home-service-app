@@ -9,7 +9,7 @@ export function BusinessesList({ categoryName, className }) {
   return (
     <section className={classNames(styles.businessesContainer, className)}>
       {filteredBusinesses.length === 0 ? (
-        <h2 className={styles.servicesNotFound}>Services Not Found!</h2>
+        <h3 className={styles.servicesNotFound}>Services Not Found!</h3>
       ) : (
         filteredBusinesses.map(business => <BusinessCard key={business.id} business={business} />)
       )}

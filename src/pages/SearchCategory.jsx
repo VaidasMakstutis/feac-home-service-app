@@ -11,7 +11,7 @@ export const SearchCategory = () => {
       <div className={styles.categories}>
         <VerticalCategoriesList />
       </div>
-      <div className={styles.categoryContainer}>
+      <div className={styles.CategoryContainer}>
         <h2 className={styles.title}>{category}</h2>
         <BusinessesList categoryName={category} className={styles.businessList} />
       </div>
