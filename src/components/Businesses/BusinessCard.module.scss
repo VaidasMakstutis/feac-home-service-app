@@ -1,0 +1,67 @@
+.card {
+  height: 550px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 0.8rem;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(86, 20, 208, 0.25) 5px 5px 15px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 50%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  object-fit: cover;
+}
+
+.cardInfo {
+  margin: 1rem;
+  height: 50%;
+}
+.category {
+  display: inline-block;
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.8rem;
+  background-color: #e5ddfb;
+  border-radius: 30px;
+  text-transform: capitalize;
+}
+
+.name {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
+
+.person {
+  color: $primary-color;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.address {
+  color: $secondary-color;
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
+.button {
+  font-size: 0.9rem;
+  padding: 1rem;
+  color: #fff;
+  background-color: $primary-color;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5b24e7;
+  }
+}
