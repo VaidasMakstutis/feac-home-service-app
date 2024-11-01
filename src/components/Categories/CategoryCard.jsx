@@ -2,7 +2,6 @@ import { useNavigate, useParams, generatePath } from "react-router-dom";
 import { ROUTES } from "../../router/consts";
 import styles from "./CategoryCard.module.scss";
 import classNames from "classnames";
-import PropTypes from "prop-types";
 
 export function CategoryCard({ category, className }) {
   const params = useParams();
@@ -21,9 +20,3 @@ export function CategoryCard({ category, className }) {
     </>
   );
 }
-
-CategoryCard.propTypes = {
-  category: PropTypes.object.isRequired,
-  title: PropTypes.string,
-  className: PropTypes.string
-};
