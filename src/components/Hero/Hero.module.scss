@@ -1,18 +1,17 @@
 .hero {
   padding-top: 1.5rem;
   text-align: center;
+}
+.title {
+  font-size: 3rem;
+  line-height: 4rem;
+}
+.primary {
+  color: $primary-color;
+}
 
-  .title {
-    font-size: 3rem;
-    line-height: 4rem;
-    .primary {
-      color: $primary-color;
-    }
-  }
-
-  .subtitle {
-    color: $secondary-color;
-    font-size: 1.2rem;
-    padding: 0.8rem;
-  }
+.subtitle {
+  color: $secondary-color;
+  font-size: 1.2rem;
+  padding: 0.8rem;
 }

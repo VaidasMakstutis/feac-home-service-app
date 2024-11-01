@@ -24,7 +24,7 @@ export function Topbar() {
     <header className={styles.topbar}>
       <div className={styles.leftSide}>
         <Link to={ROUTES.HOME}>
-          <img src={Logo} alt="logo" />
+          <img className={styles.logo} src={Logo} alt="logo" />
         </Link>
         <nav className={styles.navigation}>
           {links.map(link => (
