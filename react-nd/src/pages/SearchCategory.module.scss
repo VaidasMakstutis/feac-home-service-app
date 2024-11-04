@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.categories {
+  width: 30%;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.CategoryContainer {
+  width: 70%;
+}
+
+.businessList {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+// Media queries
+
+@media screen and (max-width: $lg) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .title {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .businessList {
+    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
