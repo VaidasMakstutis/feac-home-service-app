@@ -9,7 +9,12 @@ const UserProvider = ({ children }) => {
   const login = user => setUser(user);
   const logout = () => setUser(null);
 
-  return <UserContext.Provider value={{ user, setUser, login, logout }}>{children}</UserContext.Provider>;
+  const register = userData => {
+    console.log("User registered:", userData);
+    setUser(userData);
+  };
+
+  return <UserContext.Provider value={{ user, setUser, login, logout, register }}>{children}</UserContext.Provider>;
 };
 
 export { UserContext, UserProvider };
