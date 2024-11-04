@@ -3,8 +3,13 @@ import Logo from "../../assets/logo.svg";
 import { LoginButton } from "../LoginButton/LoginButton";
 import { ROUTES } from "../../router/consts";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { Avatar } from "../Avatar/Avatar";
 
 export function Topbar() {
+  const { user, logout } = useContext(UserContext);
+
   const links = [
     {
       href: ROUTES.HOME,
@@ -19,6 +24,8 @@ export function Topbar() {
       label: "About Us"
     }
   ];
+
+  //console.log(user);
 
   return (
     <header className={styles.topbar}>
@@ -35,7 +42,13 @@ export function Topbar() {
         </nav>
       </div>
       <div className={styles.rightSide}>
-        <LoginButton />
+        {user ? (
+          <div onClick={logout}>
+            <Avatar>{user.email[0]}</Avatar>
+          </div>
+        ) : (
+          <LoginButton />
+        )}
       </div>
     </header>
   );
