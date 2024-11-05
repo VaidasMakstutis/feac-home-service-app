@@ -7,25 +7,24 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Avatar } from "../Avatar/Avatar";
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const links = [
+  {
+    href: ROUTES.HOME,
+    label: "Home"
+  },
+  {
+    href: ROUTES.SERVICES,
+    label: "Services"
+  },
+  {
+    href: ROUTES.ABOUT_US,
+    label: "About Us"
+  }
+];
+
 export function Topbar() {
   const { user, logout } = useContext(UserContext);
-
-  const links = [
-    {
-      href: ROUTES.HOME,
-      label: "Home"
-    },
-    {
-      href: ROUTES.SERVICES,
-      label: "Services"
-    },
-    {
-      href: ROUTES.ABOUT_US,
-      label: "About Us"
-    }
-  ];
-
-  //console.log(user);
 
   return (
     <header className={styles.topbar}>
