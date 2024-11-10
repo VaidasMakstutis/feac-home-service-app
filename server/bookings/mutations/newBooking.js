@@ -1,28 +1,21 @@
-const { bookings } = require("../mockBookings");
+const Booking = require("../bookingModel");
 const { bookingSchema } = require("../validate");
 
-function newBooking(req, res) {
-  const { error, value } = bookingSchema.validate(req.body);
+async function newBooking(req, res) {
+  const { error } = bookingSchema.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details });
   }
-
-  const newId = bookings.length + 1;
-  bookings.push({
-    id: newId,
-    businessId: req.body.businessId,
-    date: req.body.date,
-    time: req.body.time,
-    userEmail: req.body.userEmail,
-    username: req.body.username,
-    status: req.body.status
-  });
-
-  res.json({
-    success: true,
-    message: "New booking added successfully",
-    bookingId: newId
-  });
+  try {
+    const newBooking = new Booking(req.body);
+    const createdBooking = await newBooking.save();
+    res.status(201).json({
+      message: "New booking added successfully",
+      booking: createdBooking
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error creating booking", error: error });
+  }
 }
 
 module.exports = {
