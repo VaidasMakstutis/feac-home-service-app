@@ -1,5 +1,5 @@
 const express = require("express");
-const { getBusinesses } = require("./queries/getBusinesses");
+const { getAllBusinesses } = require("./queries/getAllBusinesses");
 const { getBusinessById } = require("./queries/getBusinessById");
 const { getBusinessesByCategory } = require("./queries/getBusinessesByCategory");
 const { getBookingsByBusinessIdAndDate } = require("./queries/getBookingsByBusinessIdAndDate");
@@ -8,7 +8,7 @@ const { updateBusiness } = require("./mutations/updateBusiness");
 
 const businessesRouter = express.Router();
 
-businessesRouter.get("/", getBusinesses);
+businessesRouter.get("/", getAllBusinesses);
 businessesRouter.get("/:id", getBusinessById);
 businessesRouter.get("/category/:category", getBusinessesByCategory);
 businessesRouter.get("/:businessId/bookings/date/:date", getBookingsByBusinessIdAndDate);
