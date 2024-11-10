@@ -1,18 +1,37 @@
-const { categories } = require("../mockCategories");
 const { categorySchema } = require("../validate");
+const Category = require("../categoryModel");
 
-function newCategory(req, res) {
-  const { error, value } = categorySchema.validate(req.body);
+async function newCategory(req, res) {
+  // Joi validation
+  const { error } = categorySchema.validate(req.body);
   if (error) {
-    return res.status(400).json({ error: error.details });
+    return res.status(400).json({
+      error: "Validation failed",
+      message: error.details.map(e => e.message)
+    });
   }
 
-  const newId = categories.length + 1;
-  categories.push({ id: newId, name: req.body.name, bgcolor: req.body.bgcolor, icon: req.body.icon });
-  res.json({
-    success: true,
+  const { name, bgcolor, icon } = req.body;
+
+  // Validation if the category name is unique
+  const existingCategory = await Category.findOne({ name });
+  if (existingCategory) {
+    return res.status(400).json({
+      error: "Validation failed",
+      message: `Name "${name}" is already taken. Please create a unique category name.`
+    });
+  }
+
+  const newCategory = new Category({
+    name,
+    bgcolor,
+    icon
+  });
+
+  const createdCategory = await newCategory.save();
+  res.status(201).json({
     message: "New category added successfully",
-    categoryId: newId
+    category: createdCategory
   });
 }
 

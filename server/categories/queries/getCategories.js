@@ -1,7 +1,8 @@
-const { categories } = require("../mockCategories");
+const Category = require("../categoryModel");
 
-function getCategories(req, res) {
-  res.json(categories);
+async function getCategories(req, res) {
+  const categories = await Category.find();
+  categories.length ? res.json(categories) : res.status(404).send("No categories in database");
 }
 
 module.exports = {
