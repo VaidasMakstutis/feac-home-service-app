@@ -11,28 +11,27 @@ async function newCategory(req, res) {
     });
   }
 
-  const { name, bgcolor, icon } = req.body;
+  const category = req.body;
 
   // Validation if the category name is unique
-  const existingCategory = await Category.findOne({ name });
+  const existingCategory = await Category.findOne({ name: category.name });
   if (existingCategory) {
     return res.status(400).json({
       error: "Validation failed",
-      message: `Name "${name}" is already taken. Please create a unique category name.`
+      message: `Name "${category.name}" is already taken. Please create a unique category name.`
     });
   }
 
-  const newCategory = new Category({
-    name,
-    bgcolor,
-    icon
-  });
-
-  const createdCategory = await newCategory.save();
-  res.status(201).json({
-    message: "New category added successfully",
-    category: createdCategory
-  });
+  try {
+    const newCategory = new Category(category);
+    const createdCategory = await newCategory.save();
+    res.status(201).json({
+      message: "New category added successfully",
+      category: createdCategory
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error creating category", error: error });
+  }
 }
 
 module.exports = {
