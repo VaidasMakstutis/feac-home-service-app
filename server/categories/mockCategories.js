@@ -2,20 +2,20 @@ const categories = [
   {
     id: 1,
     name: "Cleaning",
-    bgcolor: { hex: "#f00" },
-    icon: { url: "http://example.com/icon1.png" }
+    bgcolor: "#f00",
+    icon: "http://example.com/icon1.png"
   },
   {
     id: 2,
     name: "Repair",
-    bgcolor: { hex: "#0f0" },
-    icon: { url: "http://example.com/icon2.png" }
+    bgcolor: "#0f0",
+    icon: "http://example.com/icon2.png"
   },
   {
     id: 3,
     name: "Shifting",
-    bgcolor: { hex: "#0f0" },
-    icon: { url: "http://example.com/icon2.png" }
+    bgcolor: "#fff",
+    icon: "http://example.com/icon3.png"
   }
 ];
 

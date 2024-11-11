@@ -1,4 +1,5 @@
 const express = require("express");
+const { connectToDb, PORT } = require("./db");
 const app = express();
 const path = require("path");
 const morgan = require("morgan");
@@ -18,4 +19,6 @@ app.get("/", (req, res) => {
   res.json("Hello World!");
 });
 
-app.listen(process.env.PORT, () => console.log(`Server running on port: ${process.env.PORT}`));
+connectToDb().then(() => {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

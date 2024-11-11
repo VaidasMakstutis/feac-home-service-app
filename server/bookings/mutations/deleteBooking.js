@@ -1,12 +1,16 @@
-const { bookings } = require("../mockBookings");
+const Booking = require("../bookingModel");
 
-function deleteBooking(req, res) {
-  const index = bookings.findIndex(booking => booking.id == req.params.id);
-  if (index !== -1) {
-    bookings.splice(index, 1);
-    res.send("Booking has been deleted");
-  } else {
-    res.status(404).send("Booking was not found");
+async function deleteBooking(req, res) {
+  try {
+    const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
+    !deletedBooking
+      ? res.status(404).send("Booking not found by ID")
+      : res.json({
+          message: "Booking deleted successfully",
+          booking: deletedBooking
+        });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting booking", error: error });
   }
 }
 

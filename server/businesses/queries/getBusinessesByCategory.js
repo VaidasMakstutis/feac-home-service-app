@@ -1,10 +1,16 @@
-const { businesses } = require("../mockBusinesses");
+const Business = require("../businessModel");
 
-function getBusinessesByCategory(req, res) {
-  const filteredBusinesses = businesses.filter(business => business.category.toLowerCase() === req.params.category.toLowerCase());
-  filteredBusinesses.length ? res.json(filteredBusinesses) : res.status(404).send("Businesses were not found by category");
+async function getBusinessesByCategory(req, res) {
+  const categoryParam = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+  try {
+    const filteredBusinesses = await Business.find({
+      category: categoryParam
+    });
+    filteredBusinesses.length ? res.json(filteredBusinesses) : res.status(404).send("Business not found by category");
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching businesses by category", error: error });
+  }
 }
-
 module.exports = {
   getBusinessesByCategory
 };

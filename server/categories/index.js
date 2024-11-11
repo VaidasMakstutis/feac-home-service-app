@@ -1,10 +1,10 @@
 const express = require("express");
-const { getCategories } = require("./queries/getCategories");
+const { getAllCategories } = require("./queries/getAllCategories");
 const { newCategory } = require("./mutations/newCategory");
 
 const categoriesRouter = express.Router();
 
-categoriesRouter.get("/", getCategories);
+categoriesRouter.get("/", getAllCategories);
 categoriesRouter.post("/", newCategory);
 
 module.exports = {
