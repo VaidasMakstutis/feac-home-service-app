@@ -1,5 +1,5 @@
-const { userModel } = require("../models/userModel");
-const { userSchema } = require("../utils/validateUser");
+const { userModel } = require('../models/userModel');
+const { userSchema } = require('../utils/validateUser');
 
 async function register(req, res) {
   const userData = req.body;
@@ -8,14 +8,14 @@ async function register(req, res) {
   const { error } = userSchema.validate(userData);
   if (error) {
     return res.status(400).json({
-      error: "Validation failed",
-      message: error.details.map(e => e.message)
+      error: 'Validation failed',
+      message: error.details.map((e) => e.message),
     });
   }
 
   const findUser = await userModel.findOne({ email: userData.email });
   if (findUser) {
-    return res.status(400).json({ message: "User with this email already exists" });
+    return res.status(400).json({ message: 'User with this email already exists' });
   }
 
   try {
@@ -23,14 +23,14 @@ async function register(req, res) {
     await createdUser.save();
 
     return res.status(201).json({
-      message: "User registered successfully",
-      userData: createdUser
+      message: 'User registered successfully',
+      userData: createdUser,
     });
   } catch (error) {
-    return res.status(500).json({ message: "Error registering new user.", error: error.message });
+    return res.status(500).json({ message: 'Error registering new user.', error: error.message });
   }
 }
 
 module.exports = {
-  register
+  register,
 };
