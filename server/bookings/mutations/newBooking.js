@@ -6,8 +6,21 @@ async function newBooking(req, res) {
   if (error) {
     return res.status(400).json({ error: error.details });
   }
+
+  const { businessId, date, time, userEmail, username, status } = req.body;
+
   try {
-    const newBooking = new Booking(req.body);
+    if (!businessId) {
+      res.status(404).json({ message: "Business not found" });
+    }
+    const newBooking = new Booking({
+      businessId: businessId,
+      date,
+      time,
+      userEmail,
+      username,
+      status
+    });
     const createdBooking = await newBooking.save();
     res.status(201).json({
       message: "New booking added successfully",
