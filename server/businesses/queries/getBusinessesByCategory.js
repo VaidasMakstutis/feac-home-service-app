@@ -1,10 +1,10 @@
 const Business = require("../businessModel");
 
-// Function does not work, return empty array
 async function getBusinessesByCategory(req, res) {
+  const categoryParam = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
   try {
     const filteredBusinesses = await Business.find({
-      category: req.params.category.toLowerCase()
+      category: categoryParam
     });
     filteredBusinesses.length ? res.json(filteredBusinesses) : res.status(404).send("Business not found by category");
   } catch (error) {
