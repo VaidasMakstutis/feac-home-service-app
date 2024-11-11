@@ -1,4 +1,4 @@
-const Business = require("../businessModel");
+const Business = require("../../models/businessModel");
 
 async function getBusinessesByCategory(req, res) {
   const categoryParam = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);

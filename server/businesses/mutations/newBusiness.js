@@ -1,5 +1,5 @@
-const { businessSchema } = require("../validate");
-const Business = require("../businessModel");
+const { businessSchema } = require("../../utils/validateBusiness");
+const Business = require("../../models/businessModel");
 
 async function newBusiness(req, res) {
   const { error } = businessSchema.validate(req.body);

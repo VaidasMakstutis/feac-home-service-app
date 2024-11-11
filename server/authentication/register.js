@@ -1,5 +1,5 @@
-const { userModel } = require("./userModel");
-const { userSchema } = require("./validate");
+const { userModel } = require("../models/userModel");
+const { userSchema } = require("../utils/validateUser");
 
 async function register(req, res) {
   const userData = req.body;
@@ -13,7 +13,6 @@ async function register(req, res) {
     });
   }
 
-  // TODO: patikrinti ar duomenys teisingi, pvz slaptažodis reikiamo formato
   const findUser = await userModel.findOne({ email: userData.email });
   if (findUser) {
     return res.status(400).json({ message: "User with this email already exists" });

@@ -1,4 +1,4 @@
-const Booking = require("../bookingModel");
+const Booking = require("../../models/bookingModel");
 
 async function getBookingsByBusinessIdAndDate(req, res) {
   try {

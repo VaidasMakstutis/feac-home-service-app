@@ -4,10 +4,10 @@ const app = express();
 const path = require("path");
 const morgan = require("morgan");
 require("dotenv").config();
-const { categoriesRouter } = require("./categories");
-const { businessesRouter } = require("./businesses");
-const { bookingsRouter } = require("./bookings");
-const { authRouter } = require("./users");
+const { categoriesRouter } = require("./routes/categoryRoutes");
+const { businessesRouter } = require("./routes/businessRoutes");
+const { bookingsRouter } = require("./routes/bookingRoutes");
+const { authRouter } = require("./routes/authRoutes");
 
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());

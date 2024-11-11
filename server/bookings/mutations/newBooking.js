@@ -1,5 +1,5 @@
-const Booking = require("../bookingModel");
-const { bookingSchema } = require("../validate");
+const Booking = require("../../models/bookingModel");
+const { bookingSchema } = require("../../utils/validateBooking");
 
 async function newBooking(req, res) {
   const { error } = bookingSchema.validate(req.body);

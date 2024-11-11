@@ -1,5 +1,5 @@
-const { categorySchema } = require("../validate");
-const Category = require("../categoryModel");
+const { categorySchema } = require("../../utils/validateCategory");
+const Category = require("../../models/categoryModel");
 
 async function newCategory(req, res) {
   // Joi validation

@@ -1,6 +1,6 @@
 const express = require("express");
-const { getAllCategories } = require("./queries/getAllCategories");
-const { newCategory } = require("./mutations/newCategory");
+const { getAllCategories } = require("../categories/queries/getAllCategories");
+const { newCategory } = require("../categories/mutations/newCategory");
 
 const categoriesRouter = express.Router();
 

@@ -1,4 +1,4 @@
-const Business = require("../businessModel");
+const Business = require("../../models/businessModel");
 
 async function getBusinessById(req, res) {
   try {

@@ -1,5 +1,5 @@
-const { userModel } = require("./userModel");
-const { generateToken } = require("./password");
+const { userModel } = require("../models/userModel");
+const { generateToken } = require("../utils/generateToken");
 
 async function login(req, res) {
   try {
