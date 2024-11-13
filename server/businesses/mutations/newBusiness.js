@@ -1,12 +1,12 @@
-const { businessSchema } = require("../validate");
-const Business = require("../businessModel");
+const { businessSchema } = require('../../utils/validateBusiness');
+const Business = require('../../models/businessModel');
 
 async function newBusiness(req, res) {
   const { error } = businessSchema.validate(req.body);
   if (error) {
     return res.status(400).json({
-      error: "Validation failed",
-      message: error.details.map(e => e.message)
+      error: 'Validation failed',
+      message: error.details.map((e) => e.message),
     });
   }
 
@@ -16,8 +16,8 @@ async function newBusiness(req, res) {
   const existingBusiness = await Business.findOne({ name: business.name });
   if (existingBusiness) {
     return res.status(400).json({
-      error: "Validation failed",
-      message: `Name "${business.name}" is already taken. Please create a unique business name.`
+      error: 'Validation failed',
+      message: `Name "${business.name}" is already taken. Please create a unique business name.`,
     });
   }
 
@@ -25,14 +25,14 @@ async function newBusiness(req, res) {
     const newBusiness = new Business(business);
     const createdBusiness = await newBusiness.save();
     res.status(201).json({
-      message: "New business added successfully",
-      business: createdBusiness
+      message: 'New business added successfully',
+      business: createdBusiness,
     });
   } catch (error) {
-    res.status(500).json({ message: "Error creating business", error: error });
+    res.status(500).json({ message: 'Error creating business', error: error });
   }
 }
 
 module.exports = {
-  newBusiness
+  newBusiness,
 };

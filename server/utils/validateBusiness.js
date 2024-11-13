@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 const businessSchema = Joi.object({
   name: Joi.string().required(),
@@ -10,13 +10,13 @@ const businessSchema = Joi.object({
   images: Joi.array()
     .items(
       Joi.object({
-        url: Joi.string().uri().required()
-      }).required()
+        url: Joi.string().uri().required(),
+      }).required(),
     )
     .min(1)
-    .required()
+    .required(),
 });
 
 module.exports = {
-  businessSchema
+  businessSchema,
 };
