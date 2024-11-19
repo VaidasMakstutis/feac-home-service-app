@@ -1,8 +1,9 @@
 import { userModel } from '../models/userModel';
 import { userSchema } from '../utils/validateUser';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-export async function register(req: Request, res: Response) {
+//export async function register(req: Request, res: Response, next: NextFunction): Promise<Response> {
+export async function register(req: Request, res: Response, next: NextFunction): Promise<any> {
   const userData = req.body;
 
   // Joi validation

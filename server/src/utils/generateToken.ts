@@ -1,10 +1,9 @@
 import jwt from 'jsonwebtoken';
-import { Types } from 'mongoose';
 
 const expiresIn = process.env.JWT_EXPIRATION;
 const SECRET = process.env.JWT_SECRET;
 
-export function generateToken(payload: Types.ObjectId) {
+export function generateToken(payload: { id: string }) {
   if (!SECRET) {
     throw new Error('JWT_SECRET is not defined');
   }

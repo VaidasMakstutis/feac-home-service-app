@@ -1,9 +1,9 @@
-import { Booking } from '../../models/bookingModel';
+import { BookingModel } from '../../models/bookingModel';
 import { Request, Response } from 'express';
 
 export async function getBookingsByBusinessIdAndDate(req: Request, res: Response) {
   try {
-    const query = await Booking.find({
+    const query = await BookingModel.find({
       businessId: req.params.businessId,
       date: req.params.date,
     });

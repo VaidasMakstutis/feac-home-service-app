@@ -1,8 +1,8 @@
-import { Booking } from '../../models/bookingModel';
+import { BookingModel } from '../../models/bookingModel';
 import { bookingSchema } from '../../utils/validateBooking';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
-export async function newBooking(req: Request, res: Response) {
+export async function newBooking(req: Request, res: Response, next: NextFunction): Promise<any> {
   const { error } = bookingSchema.validate(req.body);
   if (error) {
     return res.status(400).json({ error: error.details });
@@ -14,7 +14,7 @@ export async function newBooking(req: Request, res: Response) {
     if (!businessId) {
       res.status(404).json({ message: 'Business not found' });
     }
-    const newBooking = new Booking({
+    const newBooking = new BookingModel({
       businessId: businessId,
       date,
       time,

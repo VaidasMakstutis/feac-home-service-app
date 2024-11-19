@@ -1,8 +1,8 @@
 import { businessSchema } from '../../utils/validateBusiness';
 import { BusinessModel } from '../../models/businessModel';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
-export async function updateBusiness(req: Request, res: Response) {
+export async function updateBusiness(req: Request, res: Response, next: NextFunction): Promise<any> {
   const { error } = businessSchema.validate(req.body);
   if (error) {
     return res.status(400).json({

@@ -1,9 +1,9 @@
-import { Booking } from '../../models/bookingModel';
+import { BookingModel } from '../../models/bookingModel';
 import { Request, Response } from 'express';
 
 export async function deleteBooking(req: Request, res: Response) {
   try {
-    const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
+    const deletedBooking = await BookingModel.findByIdAndDelete(req.params.id);
     !deletedBooking
       ? res.status(404).send('Booking not found by ID')
       : res.json({

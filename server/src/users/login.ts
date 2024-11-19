@@ -1,15 +1,17 @@
 import { userModel } from '../models/userModel';
 import { generateToken } from '../utils/generateToken';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import { User } from '../types/User';
 
-export async function login(req: Request, res: Response) {
+//export async function login(req: Request, res: Response, next: NextFunction): Promise<Response> {
+export async function login(req: Request, res: Response, next: NextFunction) {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({ message: 'Please provide email and password' });
     }
 
-    const findUser = await userModel.findOne({ email });
+    const findUser: User | null = await userModel.findOne({ email });
     if (!findUser) {
       return res.status(401).json({ message: 'Incorrect email or password' });
     }
@@ -19,7 +21,7 @@ export async function login(req: Request, res: Response) {
       return res.status(401).json({ message: 'Incorrect email or password' });
     }
 
-    const token = generateToken({ id: findUser._id });
+    const token = generateToken({ id: findUser._id.toString() });
 
     return res.status(200).json({ status: 'success', token, user: findUser });
   } catch (error) {

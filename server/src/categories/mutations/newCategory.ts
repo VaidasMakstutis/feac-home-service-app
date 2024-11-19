@@ -1,8 +1,8 @@
 import { categorySchema } from '../../utils/validateCategory';
 import { CategoryModel } from '../../models/categoryModel';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
-export async function newCategory(req: Request, res: Response) {
+export async function newCategory(req: Request, res: Response, next: NextFunction): Promise<any> {
   // Joi validation
   const { error } = categorySchema.validate(req.body);
   if (error) {
