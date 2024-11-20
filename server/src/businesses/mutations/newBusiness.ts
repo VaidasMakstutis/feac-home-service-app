@@ -1,14 +1,15 @@
-import { businessSchema } from '../../utils/validateBusiness';
-import { BusinessModel } from '../../models/businessModel';
+import { businessSchema } from '../validate';
+import { BusinessModel } from '../model';
 import { NextFunction, Request, Response } from 'express';
 
-export async function newBusiness(req: Request, res: Response, next: NextFunction): Promise<any> {
+export async function newBusiness(req: Request, res: Response, next: NextFunction): Promise<void> {
   const { error } = businessSchema.validate(req.body);
   if (error) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Validation failed',
       message: error.details.map((e) => e.message),
     });
+    return;
   }
 
   const business = req.body;
@@ -16,10 +17,11 @@ export async function newBusiness(req: Request, res: Response, next: NextFunctio
   // Validation if the business name is unique
   const existingBusiness = await BusinessModel.findOne({ name: business.name });
   if (existingBusiness) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Validation failed',
       message: `Name "${business.name}" is already taken. Please create a unique business name.`,
     });
+    return;
   }
 
   try {

@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 
-export type BookingType = {
+export type Booking = {
   businessId: Types.ObjectId;
   date: Date;
   time: string;

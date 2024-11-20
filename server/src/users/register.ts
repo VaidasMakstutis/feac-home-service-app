@@ -1,7 +1,7 @@
-import { userModel } from '../models/userModel';
-import { userSchema } from '../utils/validateUser';
+import { userModel } from './model';
+import { userSchema } from './validate';
 import { Request, Response, NextFunction } from 'express';
-import { User } from '../types/User';
+import { User } from './types';
 
 // type RegisterRequestBody = {
 //   name: string;

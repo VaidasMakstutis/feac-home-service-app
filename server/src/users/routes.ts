@@ -1,6 +1,6 @@
 import express from 'express';
-import { login } from '../users/login';
-import { register } from '../users/register';
+import { login } from './login';
+import { register } from './register';
 
 export const authRouter = express.Router();
 

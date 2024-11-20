@@ -1,4 +1,4 @@
-import { BookingModel } from '../../models/bookingModel';
+import { BookingModel } from '../model';
 import { Request, Response } from 'express';
 
 export async function deleteBooking(req: Request, res: Response) {

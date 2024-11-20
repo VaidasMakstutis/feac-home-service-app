@@ -1,4 +1,4 @@
-import { BusinessModel } from '../../models/businessModel';
+import { BusinessModel } from '../model';
 import { Request, Response } from 'express';
 
 export async function getBusinessesByCategory(req: Request, res: Response) {

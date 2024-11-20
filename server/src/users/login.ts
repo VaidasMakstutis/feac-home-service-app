@@ -1,7 +1,7 @@
-import { userModel } from '../models/userModel';
-import { generateToken } from '../utils/generateToken';
+import { userModel } from './model';
+import { generateToken } from './generateToken';
 import { NextFunction, Request, Response } from 'express';
-import { User } from '../types/User';
+import { User } from './types';
 
 // type LoginRequestBody = {
 //   email: string;

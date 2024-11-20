@@ -1,6 +1,6 @@
 import express from 'express';
-import { getAllCategories } from '../categories/queries/getAllCategories';
-import { newCategory } from '../categories/mutations/newCategory';
+import { getAllCategories } from './queries/getAllCategories';
+import { newCategory } from './mutations/newCategory';
 
 export const categoriesRouter = express.Router();
 

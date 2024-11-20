@@ -1,4 +1,4 @@
-import { CategoryModel } from '../../models/categoryModel';
+import { CategoryModel } from '../model';
 import { Request, Response } from 'express';
 
 export async function getAllCategories(req: Request, res: Response) {

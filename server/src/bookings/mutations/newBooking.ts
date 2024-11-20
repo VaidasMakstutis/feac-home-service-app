@@ -1,11 +1,12 @@
-import { BookingModel } from '../../models/bookingModel';
-import { bookingSchema } from '../../utils/validateBooking';
+import { BookingModel } from '../model';
+import { bookingSchema } from '../validate';
 import { Request, Response, NextFunction } from 'express';
 
-export async function newBooking(req: Request, res: Response, next: NextFunction): Promise<any> {
+export async function newBooking(req: Request, res: Response, next: NextFunction): Promise<void> {
   const { error } = bookingSchema.validate(req.body);
   if (error) {
-    return res.status(400).json({ error: error.details });
+    res.status(400).json({ error: error.details });
+    return;
   }
 
   const { businessId, date, time, userEmail, username, status } = req.body;

@@ -1,4 +1,4 @@
-import { BookingModel } from '../../models/bookingModel';
+import { BookingModel } from '../model';
 import { Request, Response } from 'express';
 
 export async function getAllBookings(req: Request, res: Response) {

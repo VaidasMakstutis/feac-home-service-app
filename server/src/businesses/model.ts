@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { Business, Image } from '../types/Business';
+import { Business, Image } from './types';
 
 const imageSchema = new mongoose.Schema<Image>(
   {

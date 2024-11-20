@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { BookingType } from '../types/Booking';
+import { Booking } from './types';
 
-const bookingSchema = new mongoose.Schema<BookingType>({
+const bookingSchema = new mongoose.Schema<Booking>({
   businessId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Business',
@@ -29,4 +29,4 @@ const bookingSchema = new mongoose.Schema<BookingType>({
   },
 });
 
-export const BookingModel = mongoose.model<BookingType>('Booking', bookingSchema);
+export const BookingModel = mongoose.model<Booking>('Booking', bookingSchema);

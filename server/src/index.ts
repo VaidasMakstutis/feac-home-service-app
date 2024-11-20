@@ -3,10 +3,10 @@ import cors from 'cors';
 import path from 'path';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import { categoriesRouter } from './routes/categoryRoutes';
-import { businessesRouter } from './routes/businessRoutes';
-import { bookingsRouter } from './routes/bookingRoutes';
-import { authRouter } from './routes/authRoutes';
+import { categoriesRouter } from './categories/routes';
+import { businessesRouter } from './businesses/routes';
+import { bookingsRouter } from './bookings/routes';
+import { authRouter } from './users/routes';
 import { connectToDb, PORT } from './db';
 dotenv.config();
 

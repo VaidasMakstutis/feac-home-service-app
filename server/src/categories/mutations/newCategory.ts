@@ -1,15 +1,16 @@
-import { categorySchema } from '../../utils/validateCategory';
-import { CategoryModel } from '../../models/categoryModel';
+import { categorySchema } from '../validate';
+import { CategoryModel } from '../model';
 import { NextFunction, Request, Response } from 'express';
 
-export async function newCategory(req: Request, res: Response, next: NextFunction): Promise<any> {
+export async function newCategory(req: Request, res: Response, next: NextFunction): Promise<void> {
   // Joi validation
   const { error } = categorySchema.validate(req.body);
   if (error) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Validation failed',
       message: error.details.map((e) => e.message),
     });
+    return;
   }
 
   const category = req.body;
@@ -17,10 +18,11 @@ export async function newCategory(req: Request, res: Response, next: NextFunctio
   // Validation if the category name is unique
   const existingCategory = await CategoryModel.findOne({ name: category.name });
   if (existingCategory) {
-    return res.status(400).json({
+    res.status(400).json({
       error: 'Validation failed',
       message: `Name "${category.name}" is already taken. Please create a unique category name.`,
     });
+    return;
   }
 
   try {
