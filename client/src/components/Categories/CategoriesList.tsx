@@ -20,7 +20,7 @@ export function CategoriesList() {
   return (
     <div className={styles.container}>
       {categories.map(category => (
-        <CategoryCard key={category.name} category={category} bgcolor={category.bgcolor} className={styles.card} />
+        <CategoryCard key={category.name} category={category} className={styles.card} />
       ))}
     </div>
   );

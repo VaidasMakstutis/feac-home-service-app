@@ -19,11 +19,13 @@
   gap: 1rem;
   border: none;
   text-transform: capitalize;
+  background-color: #f7f4fd;
   color: #9977ef;
   cursor: pointer;
 
   &:hover,
   &.active {
     border: 2px solid #beaaf5;
+    color: #8056eb;
   }
 }
