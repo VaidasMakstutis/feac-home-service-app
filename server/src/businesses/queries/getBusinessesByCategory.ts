@@ -2,7 +2,7 @@ import { BusinessModel } from '../model';
 import { Request, Response } from 'express';
 
 export async function getBusinessesByCategory(req: Request, res: Response) {
-  const categoryParam = req.params.category.charAt(0).toUpperCase() + req.params.category.slice(1);
+  const categoryParam = req.params.category;
   try {
     const filteredBusinesses = await BusinessModel.find({
       category: categoryParam,
