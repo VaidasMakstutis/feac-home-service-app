@@ -1,15 +1,5 @@
 import mongoose from 'mongoose';
-import { Business, Image } from './types';
-
-const imageSchema = new mongoose.Schema<Image>(
-  {
-    url: {
-      type: String,
-      required: true,
-    },
-  },
-  { _id: false },
-);
+import { Business } from './types';
 
 const businessSchema = new mongoose.Schema<Business>({
   name: {
@@ -36,8 +26,8 @@ const businessSchema = new mongoose.Schema<Business>({
     type: String,
     required: true,
   },
-  images: {
-    type: [imageSchema],
+  image: {
+    type: String,
     required: true,
   },
 });

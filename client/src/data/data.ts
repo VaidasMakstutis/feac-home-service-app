@@ -1,13 +1,16 @@
-export const categories = [
-  { id: 1, name: "cleaning", url: "https://img.icons8.com/?size=100&id=8088&format=png&color=000000" },
-  { id: 2, name: "repair", url: "https://img.icons8.com/?size=100&id=59827&format=png&color=000000" },
-  { id: 3, name: "painting", url: "https://img.icons8.com/?size=100&id=8141&format=png&color=000000" },
-  { id: 4, name: "shifting", url: "https://img.icons8.com/?size=100&id=9341&format=png&color=000000" },
-  { id: 5, name: "plumbing", url: "https://img.icons8.com/?size=100&id=24925&format=png&color=000000" },
-  { id: 6, name: "electric", url: "https://img.icons8.com/?size=100&id=9094&format=png&color=000000" }
+import { Category } from "../components/Categories/types";
+import { Business } from "../components/Businesses/types";
+
+export const categories: Category[] = [
+  { id: 1, name: "cleaning", bgcolor: "#fff", icon: "https://img.icons8.com/?size=100&id=8088&format=png&color=000000" },
+  { id: 2, name: "repair", bgcolor: "#fff", icon: "https://img.icons8.com/?size=100&id=59827&format=png&color=000000" },
+  { id: 3, name: "painting", bgcolor: "#fff", icon: "https://img.icons8.com/?size=100&id=8141&format=png&color=000000" },
+  { id: 4, name: "shifting", bgcolor: "#000", icon: "https://img.icons8.com/?size=100&id=9341&format=png&color=000000" },
+  { id: 5, name: "plumbing", bgcolor: "#fff", icon: "https://img.icons8.com/?size=100&id=24925&format=png&color=000000" },
+  { id: 6, name: "electric", bgcolor: "#000", icon: "https://img.icons8.com/?size=100&id=9094&format=png&color=000000" }
 ];
 
-export const businesses = [
+export const businesses: Business[] = [
   {
     id: 1,
     image: "https://thecleanhaven.com/wp-content/uploads/2021/06/cleaning-service.jpeg",

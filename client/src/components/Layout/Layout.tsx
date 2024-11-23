@@ -1,5 +1,5 @@
 import styles from "./Layout.module.scss";
-import { Topbar } from "../Topbar";
+import { Topbar } from "../Topbar/Topbar";
 import { Outlet } from "react-router-dom";
 
 export function Layout() {

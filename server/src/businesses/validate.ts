@@ -7,12 +7,5 @@ export const businessSchema = Joi.object({
   category: Joi.string().required(),
   contactPerson: Joi.string().required(),
   email: Joi.string().email().required(),
-  images: Joi.array()
-    .items(
-      Joi.object({
-        url: Joi.string().uri().required(),
-      }).required(),
-    )
-    .min(1)
-    .required(),
+  image: Joi.string().required(),
 });

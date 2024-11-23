@@ -4,9 +4,9 @@ import { HiSearch } from "react-icons/hi";
 import { useState } from "react";
 
 export function InputSearch() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
 
-  const handleSearch = event => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 

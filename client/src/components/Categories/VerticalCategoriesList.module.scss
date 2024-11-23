@@ -1,3 +1,24 @@
+.verticalCard {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  gap: 0.5rem;
+  border: 2px solid #e6e6e6;
+  text-transform: capitalize;
+  color: #9977ef;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    border-color: #beaaf5;
+  }
+}
+
 .title {
   color: $primary-color;
   font-size: 2rem;

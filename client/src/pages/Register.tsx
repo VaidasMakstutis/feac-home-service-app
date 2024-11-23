@@ -2,25 +2,41 @@ import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "../router/consts";
 import styles from "./Login.module.scss";
 import stylesButton from "../components/LoginButton/LoginButton.module.scss";
-import { useContext, useState } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { useState } from "react";
+import { registerUser } from "../components/users/api";
+import { AxiosError } from "axios";
 
-export function Login() {
-  const { login } = useContext(UserContext);
+export function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    login({ email, password });
-    navigate(ROUTES.HOME);
+    try {
+      await registerUser({ name, email, password });
+      navigate(ROUTES.HOME);
+    } catch (error) {
+      const errorMsg = error as AxiosError<{ message: string }>;
+      console.error(errorMsg);
+      setError(errorMsg.response?.data.message ?? "");
+    }
   };
 
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2 className={styles.title}>Login</h2>
+        <h2 className={styles.title}>Register</h2>
+        <input
+          type="username"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          placeholder="Please type your name"
+          className={styles.input}
+          required
+        />
         <input
           type="email"
           value={email}
@@ -38,11 +54,11 @@ export function Login() {
           required
         />
         <button type="submit" className={stylesButton.button}>
-          Log in
+          Register
         </button>
         <div className={styles.link}>
-          <Link to={ROUTES.REGISTER} className={styles.signUp}>
-            Do not have an account? Sign up
+          <Link to={ROUTES.LOGIN} className={styles.signUp}>
+            Already have an account? Log in
           </Link>
         </div>
       </form>
