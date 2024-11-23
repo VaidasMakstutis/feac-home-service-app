@@ -31,7 +31,7 @@ export function BusinessesList({ categoryName, className }: BusinessesListProps)
       {filteredBusinesses.length === 0 ? (
         <h3 className={styles.servicesNotFound}>Services Not Found!</h3>
       ) : (
-        filteredBusinesses.map(business => <BusinessCard key={business.id} business={business} />)
+        filteredBusinesses.map(business => <BusinessCard key={business.name} business={business} />)
       )}
     </section>
   );
