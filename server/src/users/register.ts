@@ -3,13 +3,6 @@ import { userSchema } from './validate';
 import { Request, Response, NextFunction } from 'express';
 import { User } from './types';
 
-// type RegisterRequestBody = {
-//   name: string;
-//   age: number;
-//   email: string;
-//   password: string;
-// };
-
 export async function register(req: Request<{}, {}, User>, res: Response, next: NextFunction): Promise<void> {
   const userData = req.body;
 
