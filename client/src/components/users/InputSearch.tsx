@@ -1,5 +1,5 @@
-import styles from "../InputSearch/InputSearch.module.scss";
-import stylesButton from "../LoginButton/LoginButton.module.scss";
+import styles from "./InputSearch.module.scss";
+import stylesButton from "./LoginButton.module.scss";
 import { HiSearch } from "react-icons/hi";
 import { useState } from "react";
 

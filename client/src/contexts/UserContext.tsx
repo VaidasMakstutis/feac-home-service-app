@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, SetStateAction } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { LoginResponse, RegisterRequest, User } from "../components/users/types";
+import { LoginResponse, RegisterRequest, User } from "../components/Users/types";
 
 const UserContext = createContext<{
   user: User | null;
