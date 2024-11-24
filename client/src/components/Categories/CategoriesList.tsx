@@ -1,25 +1,13 @@
-import { useState, useEffect } from "react";
-import { Category } from "./types";
-import { getCategories } from "./api";
+import { useCategories } from "./hooks";
 import { CategoryCard } from "./CategoryCard";
 import styles from "./CategoriesList.module.scss";
 
 export function CategoriesList() {
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    getCategories()
-      .then(response => {
-        setCategories(response);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+  const { data: categories } = useCategories();
 
   return (
     <div className={styles.container}>
-      {categories.map(category => (
+      {categories?.map(category => (
         <CategoryCard key={category.name} category={category} className={styles.card} />
       ))}
     </div>

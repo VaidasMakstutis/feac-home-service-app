@@ -4,13 +4,14 @@ import { Form, Formik } from "formik";
 import { TextField } from "./TextField";
 import { registerInitialValues, registerValidationSchema } from "./schemas";
 import { RegisterRequest } from "./types";
-import { registerUser } from "./api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import styles from "./Form.module.scss";
 import stylesButton from "./LoginButton.module.scss";
+import { useRegisterUser } from "./hooks";
 
 export function RegisterForm() {
+  const { mutateAsync: registerUser } = useRegisterUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (formValues: RegisterRequest) => {

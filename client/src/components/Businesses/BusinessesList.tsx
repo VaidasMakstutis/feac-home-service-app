@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
 import { Category } from "../Categories/types";
-import { Business } from "./types";
-import { getBusinesses } from "./api";
-import classNames from "classnames";
+import { useBusinesses } from "./hooks";
 import { BusinessCard } from "./BusinessCard";
+import classNames from "classnames";
 import styles from "./BusinessesList.module.scss";
 
 type BusinessesListProps = {
@@ -12,17 +10,8 @@ type BusinessesListProps = {
 };
 
 export function BusinessesList({ categoryName, className }: BusinessesListProps) {
-  const [businesses, setBusinesses] = useState<Business[]>([]);
-
-  useEffect(() => {
-    getBusinesses()
-      .then(response => {
-        setBusinesses(response);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+  const { data } = useBusinesses();
+  const businesses = data ?? [];
 
   const filteredBusinesses = categoryName ? businesses.filter(business => business.category === categoryName) : businesses;
 

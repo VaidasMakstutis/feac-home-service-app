@@ -6,7 +6,7 @@ import { TextField } from "./TextField";
 import { loginInitialValues, loginValidationSchema } from "./schemas";
 import { LoginRequest } from "./types";
 import { UserContext } from "../../contexts/UserContext";
-import { loginUser } from "./api";
+import { useLoginUser } from "./hooks";
 import { AxiosError } from "axios";
 import styles from "./Form.module.scss";
 import stylesButton from "./LoginButton.module.scss";
@@ -14,6 +14,7 @@ import stylesButton from "./LoginButton.module.scss";
 export function LoginForm() {
   const { login } = useContext(UserContext);
   const [error, setError] = useState("");
+  const { mutateAsync: loginUser } = useLoginUser();
   const navigate = useNavigate();
 
   const handleSubmit = async (formValues: LoginRequest) => {

@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
 import { CategoryCard } from "./CategoryCard";
-import { Category } from "./types";
-import { getCategories } from "./api";
+import { useCategories } from "./hooks";
 import styles from "./VerticalCategoriesList.module.scss";
 
 export function VerticalCategoriesList() {
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    getCategories()
-      .then(response => {
-        setCategories(response);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
+  const { data: categories } = useCategories();
 
   return (
     <div>
       <h2 className={styles.title}>Categories</h2>
-      {categories.map(category => (
+      {categories?.map(category => (
         <CategoryCard key={category.name} category={category} />
       ))}
     </div>
