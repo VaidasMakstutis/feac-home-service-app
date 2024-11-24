@@ -16,12 +16,12 @@ export function RegisterForm() {
   const handleSubmit = async (formValues: RegisterRequest) => {
     try {
       await registerUser(formValues);
-      toast("Registration is successful!");
+      toast.success("Registration is successful!");
       navigate(ROUTES.LOGIN);
     } catch (error) {
       const errorMsg = error as AxiosError<{ message: string }>;
       console.error(errorMsg);
-      toast(errorMsg.response?.data.message);
+      toast.error(errorMsg.response?.data.message);
     }
   };
 

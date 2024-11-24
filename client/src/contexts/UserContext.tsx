@@ -24,13 +24,13 @@ const UserProvider = ({ children }: PropsWithChildren) => {
   const login = (loginResponse: LoginResponse) => {
     setUser(loginResponse.user);
     setToken(loginResponse.token);
-    toast("Login is successful!");
+    toast.success("Login is successful!");
   };
 
   const logout = () => {
     setUser(null);
     setToken(null);
-    toast("You are logged out!");
+    toast.success("You are logged out!");
   };
 
   return <UserContext.Provider value={{ user, isLoggedIn, login, logout }}>{children}</UserContext.Provider>;
