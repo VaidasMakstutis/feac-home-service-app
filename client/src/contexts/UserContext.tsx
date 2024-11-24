@@ -1,19 +1,18 @@
 import { createContext, PropsWithChildren, SetStateAction } from "react";
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { LoginResponse, RegisterRequest, User } from "../components/Users/types";
+import { LoginResponse, User } from "../components/Users/types";
+import { toast } from "react-toastify";
 
 const UserContext = createContext<{
   user: User | null;
   isLoggedIn: boolean;
   login: (user: LoginResponse) => void;
   logout: () => void;
-  register: (userData: RegisterRequest) => void;
 }>({
   user: null,
   isLoggedIn: false,
   login: () => {},
-  logout: () => {},
-  register: () => {}
+  logout: () => {}
 });
 
 const UserProvider = ({ children }: PropsWithChildren) => {
@@ -25,19 +24,16 @@ const UserProvider = ({ children }: PropsWithChildren) => {
   const login = (loginResponse: LoginResponse) => {
     setUser(loginResponse.user);
     setToken(loginResponse.token);
+    toast("Login is successful!");
   };
 
   const logout = () => {
     setUser(null);
     setToken(null);
+    toast("You are logged out!");
   };
 
-  const register = (userData: RegisterRequest) => {
-    console.log("User registered:", userData);
-    setUser(userData);
-  };
-
-  return <UserContext.Provider value={{ user, isLoggedIn, login, logout, register }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ user, isLoggedIn, login, logout }}>{children}</UserContext.Provider>;
 };
 
 export { UserContext, UserProvider };

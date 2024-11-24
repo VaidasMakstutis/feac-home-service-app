@@ -2,6 +2,7 @@ export type User = {
   _id: string;
   name: string;
   email: string;
+  password: string;
 };
 
 export type LoginRequest = {
@@ -20,14 +21,3 @@ export type RegisterRequest = {
   email: string;
   password: string;
 };
-
-// export type LoginFormValues = {
-//   email: string;
-//   password: string;
-// };
-
-// export type RegisterFormValues = {
-//   name: string;
-//   email: string;
-//   password: string;
-// };

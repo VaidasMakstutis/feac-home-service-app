@@ -17,7 +17,6 @@ export function LoginForm() {
   const navigate = useNavigate();
 
   const handleSubmit = async (formValues: LoginRequest) => {
-    console.log(formValues);
     try {
       const response = await loginUser(formValues);
       login(response);

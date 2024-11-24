@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ROUTES } from "../../router/consts";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
@@ -7,22 +6,22 @@ import { registerInitialValues, registerValidationSchema } from "./schemas";
 import { RegisterRequest } from "./types";
 import { registerUser } from "./api";
 import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 import styles from "./Form.module.scss";
 import stylesButton from "./LoginButton.module.scss";
 
 export function RegisterForm() {
-  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (formValues: RegisterRequest) => {
-    console.log(formValues);
     try {
       await registerUser(formValues);
+      toast("Registration is successful!");
       navigate(ROUTES.LOGIN);
     } catch (error) {
       const errorMsg = error as AxiosError<{ message: string }>;
       console.error(errorMsg);
-      setError(errorMsg.response?.data.message ?? "");
+      toast(errorMsg.response?.data.message);
     }
   };
 
