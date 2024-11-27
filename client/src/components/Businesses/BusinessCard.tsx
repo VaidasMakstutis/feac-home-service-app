@@ -8,7 +8,7 @@ type BusinessCardProps = {
 export function BusinessCard({ business }: BusinessCardProps) {
   return (
     <div className={styles.card}>
-      <img className={styles.image} src={business.image} alt={business.name} />
+      {business.image ? <img className={styles.image} src={business.image} alt={business.name} /> : null}
       <div className={styles.cardInfo}>
         <p className={styles.category}>{business.category}</p>
         <h4 className={styles.name}>{business.name}</h4>
