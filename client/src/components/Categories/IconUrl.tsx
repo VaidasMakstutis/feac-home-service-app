@@ -11,6 +11,7 @@ type IconUrlProps = {
 export function IconUrl({ icon, className, style = {} }: IconUrlProps) {
   return (
     <div
+      data-testid="icon-url"
       className={classNames(styles.icon, className)}
       style={{
         maskImage: `url(${icon})`,
