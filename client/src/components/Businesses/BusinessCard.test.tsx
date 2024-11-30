@@ -22,11 +22,11 @@ describe("<BusinessCard />", () => {
   test("renders Business Card with all details", () => {
     render(<BusinessCard business={mockBusiness} />);
     expect(screen.getByAltText("Test Business_1")).toBeInTheDocument();
-    expect(screen.queryByText(/Test Business desc_1/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Test Business desc_1/i)).toBeInTheDocument();
     expect(screen.getByText("Test Street_1")).toBeInTheDocument();
     expect(screen.getByText("Cleaning")).toBeInTheDocument();
     expect(screen.getByText("Username_1")).toBeInTheDocument();
-    expect(screen.queryByText("test@gmail.com")).not.toBeInTheDocument();
+    expect(screen.getByText("test@gmail.com")).toBeInTheDocument();
     expect(screen.getByText("Book now")).toBeInTheDocument();
   });
 
