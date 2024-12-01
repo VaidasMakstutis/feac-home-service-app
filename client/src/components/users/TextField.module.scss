@@ -1,0 +1,26 @@
+.input {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  line-height: 1.5;
+  transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+  border: 2px solid #dee1e2;
+  color: rgb(14, 14, 16);
+
+  &:hover {
+    border-color: #ccc;
+  }
+
+  &:focus {
+    border-color: #9147ff;
+    background-color: #fff;
+  }
+}
+
+.error {
+  font-size: 1.1rem;
+  color: #ff0000;
+}
