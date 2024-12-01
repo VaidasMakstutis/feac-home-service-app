@@ -13,7 +13,14 @@ dotenv.config();
 const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://vaidasmakstutis-feac-home-service-app.vercel.app',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 app.use(morgan('dev'));
 app.use('/api/categories', categoriesRouter);
 app.use('/api/businesses', businessesRouter);
@@ -23,3 +30,5 @@ app.use('/api/auth', authRouter);
 connectToDb().then(() => {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
+
+module.exports = app;

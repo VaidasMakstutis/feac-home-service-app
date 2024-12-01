@@ -1,12 +1,12 @@
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import { PROD } from "./environment";
+import axios, { AxiosError } from "axios";
 
-const baseURL = "http://localhost:3000/";
-
-const config: AxiosRequestConfig = {
-  baseURL
-};
-
-export const axiosInstance = axios.create(config);
+export const axiosInstance = axios.create({
+  baseURL: PROD ? import.meta.env.VITE_SERVER_URL : "http://localhost:3000/",
+  headers: {
+    "Content-Type": "application/json"
+  }
+});
 
 axiosInstance.interceptors.request.use(
   async config => {
