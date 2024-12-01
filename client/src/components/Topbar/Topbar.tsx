@@ -1,11 +1,11 @@
 import styles from "./Topbar.module.scss";
 import Logo from "../../assets/logo.svg";
-import { LoginButton } from "../Users/LoginButton";
+import { LoginButton } from "../users/LoginButton";
 import { ROUTES } from "../../router/consts";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import { Avatar } from "../Users/Avatar";
+import { Avatar } from "../users/Avatar";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const links = [

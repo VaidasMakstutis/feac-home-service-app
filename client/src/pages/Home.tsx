@@ -1,5 +1,5 @@
 import { Hero } from "../components/Hero/Hero";
-import { InputSearch } from "../components/Users/InputSearch";
+import { InputSearch } from "../components/users/InputSearch";
 import { CategoriesList } from "../components/Categories/CategoriesList";
 import { BusinessesList } from "../components/Businesses/BusinessesList";
 
